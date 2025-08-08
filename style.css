@@ -1,0 +1,216 @@
+/* Base styles */
+body {
+  background-color: #302c2f;
+  font-family: sans-serif;
+  color: #fff;
+  font-size: 20px;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Light mode */
+body.light {
+  background-color: #f2f2f2;
+  color: #222;
+}
+
+body.light a {
+  color: #222;
+}
+
+body.light .profile-menu-outline {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #222;
+}
+
+/* Global link styling */
+a {
+  color: #fff;
+  text-decoration: none;
+  text-decoration-style: solid;
+}
+
+a:hover,
+a:focus {
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-style: solid;
+  outline: none;
+}
+
+/* Header layout */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Logo */
+.Logo img,
+.Logo {
+  border-radius: 16%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+/* Menu layout */
+.menu {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #fff;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
+.menu-item a {
+  color: inherit;
+  padding: 5px 10px;
+}
+
+.menu-item a:hover {
+  text-decoration: underline;
+}
+
+/* Profile section */
+.profile {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.ProfilePicture {
+  border-radius: 50%;
+  cursor: pointer;
+  display: block;
+}
+
+/* Profile dropdown menu */
+.profile-menu-outline {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-100%, -5%);
+  display: none;
+  width: 250px;
+  height: 450px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-top-left-radius: 10%;
+  border-bottom-left-radius: 10%;
+  border-bottom-right-radius: 10%;
+  padding-top: 50px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: normal;
+  color: #fff;
+  z-index: 10;
+  transition: background-color 0.3s ease;
+}
+
+.profile-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.profile-menu a {
+  color: inherit;
+  font-weight: bold;
+}
+
+.profile-menu a:hover {
+  text-decoration: underline;
+}
+
+/* Toggle Theme Button */
+.toggle-btn {
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  background-color: #555;
+  color: white;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+body.light .toggle-btn {
+  background-color: #ddd;
+  color: #000;
+}
+
+.toggle-btn:hover {
+  transform: scale(1.05);
+}
+/* Light mode image and button borders */
+body.light img,
+body.light button,
+body.light .profile-menu-outline{
+  border: 1px solid black;
+}
+
+
+.toggle-btn.clicked {
+  transform: scale(1.1);
+}
+
+/* Page section layout */
+.section {
+  padding: 20px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive for phones (keep layout in one row) */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+  }
+
+  .menu {
+    font-size: 12px;
+    gap: 8px;
+    flex-wrap: nowrap;
+  }
+
+  .menu-item a {
+    padding: 3px 6px;
+  }
+}
+main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center
+}
+
+/* Super small screens (phone) - scroll menu if needed */
+@media (max-width: 400px) {
+  .menu {
+    overflow-x: auto;
+    white-space: nowrap;
+    font-size: 10px;
+    gap: 6px;
+  }
+
+  .menu::-webkit-scrollbar {
+    display: none;
+  }
+}
